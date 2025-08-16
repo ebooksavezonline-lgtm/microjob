@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroJob Hub - Earn Daily up to ₹300</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 46, 0.9);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+            }
+        }
+        .section-padding {
+            padding: 4rem 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 2% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+        .close:hover {
+            color: #ffd700;
+        }
+        .job-icon {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen">
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav fixed w-full top-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/f1f328e15f22100d8eafa44b2026e5c4" alt="MicroJob Hub" class="h-12 w-12">
+                    <span class="text-xl font-bold gradient-text">MicroJob Hub</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="#roles" class="hover:text-yellow-400 transition-colors">Roles</a>
+                    <a href="#why-fee" class="hover:text-yellow-400 transition-colors">Why Fee?</a>
+                    <a href="#our-work" class="hover:text-yellow-400 transition-colors">Our Work</a>
+                    <a href="#faq" class="hover:text-yellow-400 transition-colors">FAQ</a>
+                    <a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-400">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 hover:text-yellow-400 transition-colors">Home</a>
+                <a href="#roles" class="block py-2 hover:text-yellow-400 transition-colors">Roles</a>
+                <a href="#why-fee" class="block py-2 hover:text-yellow-400 transition-colors">Why Fee?</a>
+                <a href="#our-work" class="block py-2 hover:text-yellow-400 transition-colors">Our Work</a>
+                <a href="#faq" class="block py-2 hover:text-yellow-400 transition-colors">FAQ</a>
+                <a href="#contact" class="block py-2 hover:text-yellow-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section-padding pt-32">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <img src="https://page.gensparksite.com/v1/base64_upload/f1f328e15f22100d8eafa44b2026e5c4" alt="MicroJob Hub" class="h-24 w-24 mx-auto mb-4">
+                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-4">MicroJob Hub</h1>
+                <p class="text-lg md:text-xl mb-2 text-gray-300">small jobs, big community</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-4xl font-bold mb-6">Earn daily up to ₹300 — No investment needed, paid daily after verification, withdraw any time.</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-8">Work from home, flexible hours, limited openings.</p>
+                <div class="pulse-animation inline-block">
+                    <a href="#roles" class="bg-yellow-500 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors">
+                        <i class="fas fa-rocket mr-2"></i>Get Started Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles Section -->
+    <section id="roles" class="section-padding bg-black bg-opacity-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Choose Your Role</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Associate Role -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-user text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Associate</h3>
+                        <p class="text-green-400 font-semibold text-lg">FREE TO JOIN</p>
+                        <p class="text-gray-300">Anyone can apply</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-300 mb-4">Work just 4 hours daily and earn up to ₹300 per day. No joining fee.</p>
+                        <p class="text-yellow-400 font-semibold">Monthly Earning: ₹4,000 - ₹6,000</p>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="showRoleDetails('associate')" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-info-circle mr-2"></i>More Details
+                        </button>
+                        <a href="https://forms.gle/jatNbPvv5GXsYV4v5" target="_blank" class="block w-full bg-yellow-500 text-black py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center">
+                            <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                        </a>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-400">
+                        <p>After applying, join our channel for updates:</p>
+                        <a href="https://whatsapp.com/channel/0029VbB3msZFnSz4AGH55w1W" target="_blank" class="text-green-400 hover:text-green-300">
+                            <i class="fab fa-whatsapp mr-1"></i>Associate WhatsApp Channel
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Leader Role -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-users text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Team Leader</h3>
+                        <p class="text-orange-400 font-semibold text-lg">₹149 Registration Fee</p>
+                        <p class="text-gray-300">Only for females, 18+ with basic communication skills</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-300 mb-4">Lead a team of Associates, manage work distribution, and ensure quality.</p>
+                        <p class="text-yellow-400 font-semibold">Monthly Earning: ₹8,000 - ₹10,000</p>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="showRoleDetails('teamleader')" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-info-circle mr-2"></i>More Details
+                        </button>
+                        <a href="https://forms.gle/LrBhsyGAxqpLomDJ9" target="_blank" class="block w-full bg-yellow-500 text-black py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center">
+                            <i class="fas fa-paper-plane mr-2"></i>Apply Now
+                        </a>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-400">
+                        <p>After applying, join our channel for updates:</p>
+                        <a href="https://whatsapp.com/channel/0029VbAzsHBGk1G09CQPJa10" target="_blank" class="text-green-400 hover:text-green-300">
+                            <i class="fab fa-whatsapp mr-1"></i>Team Leader WhatsApp Channel
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Manager Role -->
+                <div class="card-hover bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-crown text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Manager</h3>
+                        <p class="text-red-400 font-semibold text-lg">₹300 Registration Fee</p>
+                        <p class="text-gray-300">Only for females, 18+ with basic communication skills</p>
+                    </div>
+                    <div class="mb-6">
+                        <p class="text-gray-300 mb-4">Manage Team Leaders, oversee operations, and report to admin.</p>
+                        <p class="text-yellow-400 font-semibold">Monthly Earning: ₹10,000 - ₹13,000</p>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="showRoleDetails('manager')" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-info-circle mr-2"></i>More Details
+                        </button>
+                        <a href="https://wa.me/917382867213" target="_blank" class="block w-full bg-yellow-500 text-black py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center">
+                            <i class="fab fa-whatsapp mr-2"></i>Apply via WhatsApp
+                        </a>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-400">
+                        <p>We will get back to you soon after application review.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Fee Section -->
+    <section id="why-fee" class="section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Why We Charge Registration Fee?</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <i class="fas fa-shield-alt text-3xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Ensures Serious Applicants</h3>
+                        <p class="text-gray-300">Fee ensures only committed and serious candidates apply for Team Leader and Manager positions.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <i class="fas fa-cogs text-3xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Covers Verification Costs</h3>
+                        <p class="text-gray-300">Registration fee covers verification and onboarding costs for proper background checks.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <i class="fas fa-star text-3xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Maintains Quality</h3>
+                        <p class="text-gray-300">Helps maintain high-quality and committed team members for better work environment.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <i class="fas fa-ban text-3xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Prevents Spam</h3>
+                        <p class="text-gray-300">Prevents spam or fake applications, ensuring genuine applicants join our platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Section -->
+    <section id="our-work" class="section-padding bg-black bg-opacity-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Our Micro Jobs</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-mobile-alt job-icon"></i>
+                    <h3 class="text-lg font-semibold">Test Apps</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-hand-holding-usd job-icon"></i>
+                    <h3 class="text-lg font-semibold">Loan Leads</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-globe job-icon"></i>
+                    <h3 class="text-lg font-semibold">Website Visit & Stay</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-thumbs-up job-icon"></i>
+                    <h3 class="text-lg font-semibold">Social Media Follows/Likes</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-clipboard-check job-icon"></i>
+                    <h3 class="text-lg font-semibold">Survey Completion</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fab fa-youtube job-icon"></i>
+                    <h3 class="text-lg font-semibold">YouTube Video Views</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-user-plus job-icon"></i>
+                    <h3 class="text-lg font-semibold">Sign-Up Campaigns</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fab fa-telegram-plane job-icon"></i>
+                    <h3 class="text-lg font-semibold">Telegram Channel Join</h3>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 text-center border border-gray-700">
+                    <i class="fas fa-star-half-alt job-icon"></i>
+                    <h3 class="text-lg font-semibold">App Rating & Review</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Frequently Asked Questions</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-3 text-yellow-400">Q: Is there any investment?</h3>
+                        <p class="text-gray-300">A: No, Associates join free. Team Leaders & Managers pay a small one-time registration fee.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-3 text-yellow-400">Q: How will I get paid?</h3>
+                        <p class="text-gray-300">A: Payments are made daily after work verification. Withdraw anytime.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-3 text-yellow-400">Q: Who can apply?</h3>
+                        <p class="text-gray-300">A: Associates – Anyone 15+; Team Leader & Manager – Females 18+.</p>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-3 text-yellow-400">Q: How much can I earn daily?</h3>
+                        <p class="text-gray-300">A: Up to ₹300/day depending on role and performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-black bg-opacity-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Contact Us</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 border border-gray-700">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <i class="fas fa-envelope text-3xl text-yellow-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Email</h3>
+                            <p class="text-gray-300">microjobhubb@gmail.com</p>
+                        </div>
+                        <div>
+                            <i class="fab fa-whatsapp text-3xl text-green-400 mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
+                            <a href="https://wa.me/917382867213" target="_blank" class="text-green-400 hover:text-green-300">+91 7382867213</a>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-2">Working Hours</h4>
+                        <p class="text-gray-300">6:00 PM - 12:00 AM (Mon-Sun)</p>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-gray-400">Located in Hyderabad, Telangana, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-40 border-t border-gray-700 py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-6">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/f1f328e15f22100d8eafa44b2026e5c4" alt="MicroJob Hub" class="h-10 w-10">
+                    <span class="text-xl font-bold gradient-text">MicroJob Hub</span>
+                </div>
+                <p class="text-gray-400 mb-4">"Work smart, earn daily — MicroJob Hub."</p>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-6 mb-6 text-sm">
+                <a href="#home" class="text-gray-400 hover:text-yellow-400 transition-colors">Home</a>
+                <a href="#roles" class="text-gray-400 hover:text-yellow-400 transition-colors">Roles</a>
+                <a href="#why-fee" class="text-gray-400 hover:text-yellow-400 transition-colors">Why Fee?</a>
+                <a href="#our-work" class="text-gray-400 hover:text-yellow-400 transition-colors">Our Work</a>
+                <a href="#faq" class="text-gray-400 hover:text-yellow-400 transition-colors">FAQ</a>
+                <a href="#contact" class="text-gray-400 hover:text-yellow-400 transition-colors">Contact</a>
+            </div>
+            <div class="flex flex-wrap justify-center space-x-6 mb-6 text-sm">
+                <a href="#" onclick="showModal('terms')" class="text-gray-400 hover:text-yellow-400 transition-colors">Terms & Conditions</a>
+                <a href="#" onclick="showModal('privacy')" class="text-gray-400 hover:text-yellow-400 transition-colors">Privacy Policy</a>
+                <a href="#" onclick="showModal('refund')" class="text-gray-400 hover:text-yellow-400 transition-colors">Refund Policy</a>
+            </div>
+            <div class="text-center text-gray-500 text-sm">
+                <p>&copy; 2025 MicroJob Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Role Details Modals -->
+    <div id="roleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('roleModal')">&times;</span>
+            <div id="roleModalContent"></div>
+        </div>
+    </div>
+
+    <!-- Legal Pages Modals -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLegalModal()">&times;</span>
+            <div id="legalModalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Show role details modal
+        function showRoleDetails(role) {
+            const modal = document.getElementById('roleModal');
+            const content = document.getElementById('roleModalContent');
+            
+            let roleContent = '';
+            
+            if (role === 'associate') {
+                roleContent = `
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Associate Role & Responsibilities</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Work Schedule</h3>
+                            <p class="text-gray-300">Work 4 hours daily between 6 PM – 12 PM</p>
+                        </div>
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Tasks</h3>
+                            <p class="text-gray-300">Perform simple micro tasks like:</p>
+                            <ul class="list-disc list-inside text-gray-300 mt-2">
+                                <li>Visiting websites</li>
+                                <li>Following social media accounts</li>
+                                <li>Filling surveys</li>
+                                <li>App testing and reviews</li>
+                                <li>YouTube video viewing</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Requirements</h3>
+                            <p class="text-gray-300">Maintain accuracy and timely submissions</p>
+                        </div>
+                        <div class="bg-green-700 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-green-400">Earning Potential</h3>
+                            <p class="text-gray-300">Daily: Up to ₹300</p>
+                            <p class="text-gray-300">Monthly: ₹4,000 - ₹6,000</p>
+                        </div>
+                    </div>
+                `;
+            } else if (role === 'teamleader') {
+                roleContent = `
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Team Leader Role & Responsibilities</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Work Schedule</h3>
+                            <p class="text-gray-300">Work 5 hours daily between 6 PM – 12 PM</p>
+                        </div>
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Responsibilities</h3>
+                            <ul class="list-disc list-inside text-gray-300">
+                                <li>Manage 5–10 Associates</li>
+                                <li>Track their work progress</li>
+                                <li>Report daily to management</li>
+                                <li>Help in training new Associates</li>
+                                <li>Ensure quality standards</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Requirements</h3>
+                            <p class="text-gray-300">Only for females, 18+ with basic communication skills</p>
+                        </div>
+                        <div class="bg-green-700 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-green-400">Earning Potential</h3>
+                            <p class="text-gray-300">Monthly: ₹8,000 - ₹10,000</p>
+                        </div>
+                        <div class="bg-orange-700 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-orange-400">Registration Fee</h3>
+                            <p class="text-gray-300">One-time fee: ₹149</p>
+                        </div>
+                    </div>
+                `;
+            } else if (role === 'manager') {
+                roleContent = `
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Manager Role & Responsibilities</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Work Schedule</h3>
+                            <p class="text-gray-300">Work 6 hours daily between 6 PM – 12 PM</p>
+                        </div>
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Responsibilities</h3>
+                            <ul class="list-disc list-inside text-gray-300">
+                                <li>Supervise Team Leaders</li>
+                                <li>Resolve operational issues</li>
+                                <li>Ensure smooth workflow</li>
+                                <li>Coordinate with admin team</li>
+                                <li>Provide performance updates</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-700 bg-opacity-50 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-yellow-400">Requirements</h3>
+                            <p class="text-gray-300">Only for females, 18+ with basic communication skills</p>
+                        </div>
+                        <div class="bg-green-700 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-green-400">Earning Potential</h3>
+                            <p class="text-gray-300">Monthly: ₹10,000 - ₹13,000</p>
+                        </div>
+                        <div class="bg-red-700 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-xl font-semibold mb-2 text-red-400">Registration Fee</h3>
+                            <p class="text-gray-300">One-time fee: ₹300</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            content.innerHTML = roleContent;
+            modal.style.display = 'block';
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Show legal modal
+        function showModal(type) {
+            const modal = document.getElementById('legalModal');
+            const content = document.getElementById('legalModalContent');
+            
+            let legalContent = '';
+            
+            if (type === 'terms') {
+                legalContent = `
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Terms & Conditions</h2>
+                    <div class="space-y-6 text-gray-300">
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">1. Acceptance of Terms</h3>
+                            <p>By using MicroJob Hub services, you agree to comply with and be bound by these terms and conditions.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">2. Registration and Eligibility</h3>
+                            <p>Associates: Minimum age 15 years. Team Leaders and Managers: Females only, minimum age 18 years with basic communication skills.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">3. Registration Fees</h3>
+                            <p>Team Leaders: One-time registration fee of ₹149. Managers: One-time registration fee of ₹300. Associates join free of charge.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">4. Work Requirements</h3>
+                            <p>All workers must maintain accuracy, meet deadlines, and follow quality standards. Working hours are between 6 PM - 12 AM.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">5. Payment Terms</h3>
+                            <p>Payments are processed daily after work verification. Withdrawal available anytime upon request.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">6. Termination</h3>
+                            <p>Either party may terminate the agreement with proper notice. Violation of terms may result in immediate termination.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">7. Limitation of Liability</h3>
+                            <p>MicroJob Hub's liability is limited to the amount of fees paid by the user.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">8. Changes to Terms</h3>
+                            <p>We reserve the right to modify these terms at any time. Users will be notified of significant changes.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">9. Contact Information</h3>
+                            <p>For questions regarding these terms, contact us at microjobhubb@gmail.com or WhatsApp +91 7382867213.</p>
+                        </section>
+                    </div>
+                `;
+            } else if (type === 'privacy') {
+                legalContent = `
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Privacy Policy</h2>
+                    <div class="space-y-6 text-gray-300">
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">1. Information Collection</h3>
+                            <p>We collect personal information such as name, age, contact details, and payment information necessary for service provision.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">2. Use of Information</h3>
+                            <p>Your information is used for account management, payment processing, communication, and service improvement.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">3. Information Sharing</h3>
+                            <p>We do not sell or share your personal information with third parties except as required for service delivery or legal compliance.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">4. Data Security</h3>
+                            <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">5. Cookies</h3>
+                            <p>Our website may use cookies to enhance user experience and analyze usage patterns.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">6. Data Retention</h3>
+                            <p>We retain your information only as long as necessary for service provision and legal requirements.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">7. Your Rights</h3>
+                            <p>You have the right to access, update, or delete your personal information. Contact us for any privacy-related requests.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">8. Policy Updates</h3>
+                            <p>This privacy policy may be updated periodically. Users will be notified of significant changes.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">9. Contact</h3>
+                            <p>For privacy concerns, contact us at microjobhubb@gmail.com or WhatsApp +91 7382867213.</p>
+                        </section>
+                    </div>
+                `;
+            } else if (type === 'refund') {
+                legalContent = `
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Refund Policy</h2>
+                    <div class="space-y-6 text-gray-300">
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">1. Registration Fee Refunds</h3>
+                            <p>Registration fees for Team Leader (₹149) and Manager (₹300) positions are non-refundable once the verification process has begun.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">2. Refund Eligibility</h3>
+                            <p>Refunds may be considered only if:</p>
+                            <ul class="list-disc list-inside ml-4 mt-2">
+                                <li>Technical error during payment processing</li>
+                                <li>Duplicate payment made accidentally</li>
+                                <li>Service not provided due to our inability</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">3. Refund Timeline</h3>
+                            <p>Refund requests must be made within 24 hours of payment. Eligible refunds will be processed within 7-10 business days.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">4. Refund Process</h3>
+                            <p>To request a refund, contact us at microjobhubb@gmail.com with your transaction details and reason for refund.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">5. Payment Refunds</h3>
+                            <p>Work-related payments are processed after verification and are non-refundable once withdrawn.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">6. Disputed Transactions</h3>
+                            <p>Any payment disputes will be resolved through investigation and mutual agreement.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">7. Non-Refundable Services</h3>
+                            <p>Training materials, onboarding costs, and verification processes are non-refundable.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">8. Refund Method</h3>
+                            <p>Refunds will be processed to the original payment method used for the transaction.</p>
+                        </section>
+                        <section>
+                            <h3 class="text-xl font-semibold mb-3 text-yellow-400">9. Contact for Refunds</h3>
+                            <p>For refund queries, contact microjobhubb@gmail.com or WhatsApp +91 7382867213.</p>
+                        </section>
+                    </div>
+                `;
+            }
+            
+            content.innerHTML = legalContent;
+            modal.style.display = 'block';
+        }
+
+        // Close legal modal
+        function closeLegalModal() {
+            document.getElementById('legalModal').style.display = 'none';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const roleModal = document.getElementById('roleModal');
+            const legalModal = document.getElementById('legalModal');
+            if (event.target === roleModal) {
+                roleModal.style.display = 'none';
+            }
+            if (event.target === legalModal) {
+                legalModal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
